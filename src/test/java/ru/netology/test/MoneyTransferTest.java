@@ -24,8 +24,8 @@ public class MoneyTransferTest {
     DashboardPage dashboardPage;
 
     @BeforeEach
-    void SetUp() {
-        open("http://localhost:9999");
+    void setUp() {
+        open("http://127.0.0.1:9999");
         val loginPage = new LoginPage();
         val authInfo = DataHelper.getAuthInfo();
         val verificationPage = loginPage.validLogin(authInfo);
@@ -67,6 +67,6 @@ public class MoneyTransferTest {
         sum = begBalance1 + 100;
         val topUpPage = dashboardPage.clickTopUp(dashboardPage.card2);
         val cardNum = DataHelper.getFirstCard().getNumber();
-        topUpPage.unsuccessfulTopUp(Integer.toString(sum), cardNum);
+        topUpPage.successfulTopUp(Integer.toString(sum), cardNum);
     }
 }
