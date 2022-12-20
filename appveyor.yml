@@ -16,4 +16,5 @@ install:
   - sudo apt-get install google-chrome-stable
 
 build_script:
-  - ./gradlew test --info
+  - ps: chmod +x ./gradlew
+  - ps: ./gradlew test --info "-Dselenide.headless=true"  # стартуем Selenide в Headless-режиме
